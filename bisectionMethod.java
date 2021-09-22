@@ -19,7 +19,6 @@ public class bisectionMethod{
         int b; // Batas Xatas
         int e; // Toleransi error
         int N; // Iterasi Maksimum
-        int x; //
         // Proses input
         try(Scanner in = new Scanner(System.in)){
             System.out.print("Masukkan nilai batas Xbawah: ");
