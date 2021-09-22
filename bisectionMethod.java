@@ -8,10 +8,10 @@ public class bisectionMethod{
     /**
      * Sebuah method untuk mendefinisikan f(x)
      * @param double x
-     * @return 
+     * @return nilai
      */
-    public static double f(double x){
-        return x - 3 / (x * x) - 4;
+    public static double fungsi(double x){
+        return x*x*x - x*x + 2;
     }
     public static void main(String[] args) {
         // Inisialisasi variabel
@@ -19,6 +19,7 @@ public class bisectionMethod{
         int b; // Batas Xatas
         int e; // Toleransi error
         int N; // Iterasi Maksimum
+        double x = 0;
         // Proses input
         try(Scanner in = new Scanner(System.in)){
             System.out.print("Masukkan nilai batas Xbawah: ");
@@ -30,6 +31,13 @@ public class bisectionMethod{
             System.out.print("Iterasi Maksimum: ");
             N = in.nextInt();
         }
-
+        // Mencari nilai f(a) * f(b)
+        int fa = (int) fungsi(a);
+        int fb = (int) fungsi(b);
+        int hasilPerkalian = fa * fb;
+        // Kondisi
+        if (hasilPerkalian > 0){
+            System.out.print("Tidak ada akar dari persamaaan tersebut");
+        }
     }
 }
