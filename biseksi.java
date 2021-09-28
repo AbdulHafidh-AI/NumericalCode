@@ -7,7 +7,7 @@
  */
 public class biseksi {
     /**
-     * Sebuah method untuk mendefinisikan fungsi f(x)
+     * Sebuah method untuk mendefinisikan fungsi f(x) = x*x*x - 10 * x + 8
      * @param x
      * @return x * x * x - 10 * x + 8
      */
