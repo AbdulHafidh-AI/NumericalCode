@@ -8,7 +8,7 @@
  */
 public class NewtonRaphson {
     /**
-     * Sebuah method untuk mendefinisikan fungsi f(x) = 4x^3 - 15x^2 + 17x - 6 
+     * Sebuah method untuk mendefinisikan fungsi no 1 f(x) = 4x^3 - 15x^2 + 17x - 6 
      * @param x
      * @return 4 * Math.pow(x, 3) - 15 * Math.pow(x, 2) + 17 * x - 6
      */
@@ -17,22 +17,50 @@ public class NewtonRaphson {
     }
 
     /**
-     * Sebuah method untuk mendefinisikan fungsi f(x) = x^3 – 2x^2 + 3x – 6 
+     * Sebuah method untuk mendefinisikan fungsi derivatives no 1 f'(X) = 12x^2 - 30x + 17
+     * @param x
+     * @return 12 * Math.pow(x, 2) - 30 * x + 17
+     */
+    public static double fungsiDerivativesNo1(double x){
+        return 12 * Math.pow(x, 2) - 30 * x + 17;
+    }
+
+    /**
+     * Sebuah method untuk mendefinisikan fungsi no 2 f(x) = x^3 – 2x^2 + 3x – 6 
      * @param x
      * @return Math.pow(x, 3) - 2 * Math.pow(x, 2) + 3 * x - 6
      */
     public static double fungsiNo2(double x){
         return  Math.pow(x, 3) - 2 * Math.pow(x, 2) + 3 * x - 6;
     }
-
     /**
-     * Sebuah method untuk mendefinisikan fungsi f(x) = x^5 + 2x^2 – 4
+     * Sebuah method untuk mendefinisikan fungsi derivatives no 2 f(x) = 3x^2 - 4x + 3
+     * @param x
+     * @return 3 * Math.pow(x, 2) - 4 * x + 3
+     */
+    public static double fungsiDerivativesNo2(double x){
+        return 3 * Math.pow(x, 2) - 4 * x + 3;
+    }
+    /**
+     * Sebuah method untuk mendefinisikan fungsi no 3 f(x) = x^5 + 2x^2 – 4
      * @param x
      * @return Math.pow(x, 5) + 2 * Math.pow(x, 2) - 4
      */
     public static double fungsiNo3(double x){
         return Math.pow(x, 5) + 2 * Math.pow(x, 2) - 4;
     }
+    /**
+     * Sebuah method untuk mendefinisikan fungsi derivatives no 3 f(x) = 5x^4 + 4x
+     * @param x
+     * @return 5 * Math.pow(x,4) + 4 * x
+     */
+    public static double fungsiDerivativesNo3(double x){
+        return 5 * Math.pow(x,4) + 4 * x;
+    }
+    /**
+     * Sebuah Method main
+     * @param args
+     */
 
     public static void main(String[] args) {
         
