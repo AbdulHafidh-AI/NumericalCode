@@ -58,53 +58,112 @@ public class NewtonRaphson {
     public static double fungsiDerivativesNo3(double x){
         return 5 * Math.pow(x,4) + 4 * x;
     }
+    
     /**
      * Sebuah Method main untuk mencetak output
      * @param args
      */
 
     public static void main(String[] args) {
-        int pilihan;
+        String ulang;
+        char lagi;
+        int pilihan; 
+        int iterasiAwal;
         double e; // Toleransi error
-        int n; // Iterasi Maksimum
+        int N = 10; // Iterasi Maksimum
         double x0; // Nilai pendekatan awal
-        double fx0;
-        double fx0Turunan;
-        double fx1;
-        double x1;
+        double fx0; // fungsi f(x0)
+        double fx0Turunan; // fungsi turunan fx0
+        double fx1  = 0; // fungsi dari nilai tebakan awal
+        double x1; // nilai tebakan awal
         try(Scanner in = new Scanner(System.in)){
+            do{
             System.out.print("Masukkan pilihan soal: ");
             pilihan = in.nextInt();
             switch (pilihan) {
                 case 1:
+                System.out.println("========================== SOAL NO 1 =======================================");
+                System.out.printf("\nIterasi\t\tx0\t\tf(x0)\t\tx1\t\tf(x1)\n");
+                   iterasiAwal = 1; // iterasi dimulai dari 1
                     x0 = 3;
                     e = 0.001;
                     // Mencari nilai f(x0) dan f'(x0)
+                    do{
                     fx0 = (double) fungsiNo1(x0);
                     fx0Turunan = (double) fungsiDerivativesNo1(x0);
                     if (fx0Turunan == 0){
                         System.out.println("ERROR MATEMATIKA");
                     }
-                    
+                    x1 = x0 - fx0/fx0Turunan;
+                    System.out.printf("%d\t\t%f\t%f\t%f\t%f\n", iterasiAwal,x0,fx0,x1,fx1);
+                    x0 = x1;
+                    iterasiAwal = iterasiAwal + 1;
+                    if(iterasiAwal > N){
+                        System.out.println("Tidak konvergen");
+                    }
+                    fx1 = (double) fungsiNo1(x1);
+                }while(Math.abs(fx1) > e); 
+                System.out.println("Akar persamaanya adalah : " + x1);
                     break;
                 case 2:
+                System.out.println("========================== SOAL NO 2 =======================================");
+                System.out.printf("\nIterasi\t\tx0\t\tf(x0)\t\tx1\t\tf(x1)\n");
+                    iterasiAwal = 1; // iterasi dimulai dari 1
                     x0 = 3;
                     e = 0.001;
-                    // Mencari nilai f(x0) dan f'(x0)
-                    fx0 = (double) fungsiNo2(x0);
-                    fx0Turunan = (double) fungsiDerivativesNo2(x0);
+                    do{
+                        // Mencari nilai f(x0) dan f'(x0)
+                        fx0 = (double) fungsiNo2(x0);
+                        fx0Turunan = (double) fungsiDerivativesNo2(x0);
+                        if (fx0Turunan == 0){
+                            System.out.println("ERROR MATEMATIKA");
+                        }
+                        x1 = x0 - fx0/fx0Turunan;
+                        System.out.printf("%d\t\t%f\t%f\t%f\t%f\n", iterasiAwal,x0,fx0,x1,fx1);
+                        x0 = x1;
+                        iterasiAwal = iterasiAwal + 1;
+                        if(iterasiAwal > N){
+                            System.out.println("Tidak konvergen");
+                        }
+                        fx1 = (double) fungsiNo2(x1);
+                    }while(Math.abs(fx1) > e); 
+                    System.out.println("Akar persamaanya adalah : " + x1);
                     break;
                 case 3:
+                System.out.println("========================== SOAL NO 3 =======================================");
+                System.out.printf("\nIterasi\t\tx0\t\tf(x0)\t\tx1\t\tf(x1)\n");
+                    iterasiAwal = 1; // iterasi dimulai dari 1
                     x0 = 1;
                     e = 0.001;
-                    // Mencari nilai f(x0) dan f'(x0)
-                    fx0 = (double) fungsiNo2(x0);
-                    fx0Turunan = (double) fungsiDerivativesNo2(x0);
+                    do{
+                        // Mencari nilai f(x0) dan f'(x0)
+                        fx0 = (double) fungsiNo3(x0);
+                        fx0Turunan = (double) fungsiDerivativesNo3(x0);
+                        if (fx0Turunan == 0){
+                            System.out.println("ERROR MATEMATIKA");
+                        }
+                        x1 = x0 - fx0/fx0Turunan;
+                        System.out.printf("%d\t\t%f\t%f\t%f\t%f\n", iterasiAwal,x0,fx0,x1,fx1);
+                        x0 = x1;
+                        iterasiAwal = iterasiAwal + 1;
+                        if(iterasiAwal > N){
+                            System.out.println("Tidak konvergen");
+                        }
+                        fx1 = (double) fungsiNo3(x1);
+                    }while(Math.abs(fx1) > e); 
+                    System.out.println("Akar persamaanya adalah : " + x1);
                     break;
                 default:
                 System.out.println("Pilihan yang anda masukkan tidak tersedia");
                     break;
             }
+        // Membuat suatu pernyataan untuk bermain kembali atau tidak  
+        System.out.print("Apakah kamu ingin melihat jawaban dari soal yang lainya? (y/n) :  ");
+        in.nextLine(); // Memanggil method ini agar bisa dideteksi oleh method Scanner in dari library import java.util.Scanner
+        ulang = in.nextLine();
+        lagi = ulang.charAt(0); // Memanggil method charAt(0) karena pada akhir inputan user hanya boleh menginput satu huruf 
+        }while(lagi == 'Y' || lagi == 'y');
         }
+        System.out.println("========   TERIMA KASIH ========");
     }
 }
