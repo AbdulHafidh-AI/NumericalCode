@@ -1,3 +1,4 @@
+import java .util.Scanner;
 /**
  * Sebuah source code untuk mencari jawaban dari soal dibawah ini dengan menggunakan metode NewtonRaphson
  * 1. Tentukan akar dari persamaan 4x^3 – 15x^2 + 17x – 6 = 0 menggunakan  Metode Newton Raphson dengan  x0=3, toleransi galat relatif x=0.001
@@ -58,11 +59,52 @@ public class NewtonRaphson {
         return 5 * Math.pow(x,4) + 4 * x;
     }
     /**
-     * Sebuah Method main
+     * Sebuah Method main untuk mencetak output
      * @param args
      */
 
     public static void main(String[] args) {
-        
+        int pilihan;
+        double e; // Toleransi error
+        int n; // Iterasi Maksimum
+        double x0; // Nilai pendekatan awal
+        double fx0;
+        double fx0Turunan;
+        double fx1;
+        double x1;
+        try(Scanner in = new Scanner(System.in)){
+            System.out.print("Masukkan pilihan soal: ");
+            pilihan = in.nextInt();
+            switch (pilihan) {
+                case 1:
+                    x0 = 3;
+                    e = 0.001;
+                    // Mencari nilai f(x0) dan f'(x0)
+                    fx0 = (double) fungsiNo1(x0);
+                    fx0Turunan = (double) fungsiDerivativesNo1(x0);
+                    if (fx0Turunan == 0){
+                        System.out.println("ERROR MATEMATIKA");
+                    }
+                    
+                    break;
+                case 2:
+                    x0 = 3;
+                    e = 0.001;
+                    // Mencari nilai f(x0) dan f'(x0)
+                    fx0 = (double) fungsiNo2(x0);
+                    fx0Turunan = (double) fungsiDerivativesNo2(x0);
+                    break;
+                case 3:
+                    x0 = 1;
+                    e = 0.001;
+                    // Mencari nilai f(x0) dan f'(x0)
+                    fx0 = (double) fungsiNo2(x0);
+                    fx0Turunan = (double) fungsiDerivativesNo2(x0);
+                    break;
+                default:
+                System.out.println("Pilihan yang anda masukkan tidak tersedia");
+                    break;
+            }
+        }
     }
 }
