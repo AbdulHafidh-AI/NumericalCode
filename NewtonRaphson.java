@@ -72,10 +72,10 @@ public class NewtonRaphson {
         double e; // Toleransi error
         int N = 10; // Iterasi Maksimum
         double x0; // Nilai pendekatan awal
-        double fx0; // fungsi f(x0)
+        double fx0; // fungsi f(x0) dari nilai pendekatan awal
         double fx0Turunan; // fungsi turunan fx0
-        double fx1  = 0; // fungsi dari nilai tebakan awal
-        double x1; // nilai tebakan awal
+        double fx1  = 0;  // fungsi dari nilai x yang telah di cari
+        double x1; // nilai x yang akan di cari
         try(Scanner in = new Scanner(System.in)){
             do{
             System.out.print("Masukkan pilihan soal: ");
