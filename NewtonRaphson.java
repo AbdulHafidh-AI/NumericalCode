@@ -8,7 +8,7 @@ import java .util.Scanner;
  * @version 2021.10.15
  */
 public class NewtonRaphson {
-    /**
+    /** 
      * Sebuah method untuk mendefinisikan fungsi no 1 f(x) = 4x^3 - 15x^2 + 17x - 6 
      * @param x
      * @return 4 * Math.pow(x, 3) - 15 * Math.pow(x, 2) + 17 * x - 6
