@@ -10,15 +10,15 @@ public class Secant{
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 1 f(x) =  x*exp(-x)+sin(2*x)
      * @param x
-     * @return x *Math.exp(-x) + Math.sin(a)
+     * @return x * Math.exp(-x) + Math.sin(a)
      */
     public static double fungsiNo1(double x){
-        return x *Math.exp(-x) + Math.sin( 2 * x);
+        return x * Math.exp(-x) + Math.sin( 2 * x);
     }
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 2 f(x) =  cos(x+1)+exp(-x+2)
      * @param x
-     * @return Math.cos(a) + Math.exp(-x + 2)
+     * @return Math.cos(x + 1) + Math.exp(-x + 2)
      */
     public static double fungsiNo2(double x){
          // Mengubah ke persamaaan radiant terlebih dahulu
