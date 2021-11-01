@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner; // Library Scanner
 /**
  * 1.  fungsi f(x) yaitu x*exp(-x)+sin(2*x) dengan nilai x=[1, 2.4], nilai iterasi adalah 10 dan nilai toleransi error adalah 0.002.
  * 2.  fungsi f(x) yaitu cos(x+1)+exp(-x+2) dengan nilai x=[1,3], nilai iterasi adalah 10 dan nilai toleransi error adalah 0.001.
@@ -13,8 +13,7 @@ public class Secant{
      * @return x *Math.exp(-x) + Math.sin(a)
      */
     public static double fungsiNo1(double x){
-        double a = Math.toRadians(2 * x); // Mengubah persamaannya ke nilai radiant dulu sebelum memanggil method sin
-        return x *Math.exp(-x) + Math.sin(a);
+        return x *Math.exp(-x) + Math.sin( 2 * x);
     }
 
     /** 
@@ -24,20 +23,15 @@ public class Secant{
      */
     public static double fungsiNo2(double x){
          // Mengubah ke persamaaan radiant terlebih dahulu
-        double a = Math.toRadians(x + 1);
-        return Math.cos(a) + Math.exp(-x + 2);
+        return Math.cos(x + 1) + Math.exp(-x + 2);
     }
-
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 3 f(x) =  cos(x)-sin(x)
      * @param x
-     * @return Math.cos(sudutCos) - Math.sin(sudutSin)
+     * @return Math.cos(x) - Math.sin(x)
      */
     public static double fungsiNo3(double x){
-        // Mengubah ke persamaaan radiant terlebih dahulu
-        double sudutCos = Math.toRadians(x); 
-        double sudutSin = Math.toRadians(x);
-        return Math.cos(sudutCos) - Math.sin(sudutSin);
+        return Math.cos(x) - Math.sin(x);
     }
     /**
      * Sebuaah method main yang bertujuan untuk mengeluarkan output
@@ -145,6 +139,7 @@ public class Secant{
             System.out.println("Akar Persamaan untuk soal no 3 ini adalah : " + x2);
                 break;
             default:
+            System.out.println("Mohon maaf, Inputan yang anda masukkan tidak tersedia");
                 break;
         }
          // Membuat suatu pernyataan untuk bermain kembali atau tidak  
