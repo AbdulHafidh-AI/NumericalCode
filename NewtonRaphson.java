@@ -119,6 +119,7 @@ public class NewtonRaphson {
                         fx0Turunan = (double) fungsiDerivativesNo2(x0);
                         if (fx0Turunan == 0){
                             System.out.println("ERROR MATEMATIKA");
+                            break;
                         }
                         x1 = x0 - fx0/fx0Turunan;
                         System.out.printf("%d\t\t%f\t%f\t%f\t%f\n", iterasiAwal,x0,fx0,x1,fx1);
@@ -126,6 +127,7 @@ public class NewtonRaphson {
                         iterasiAwal = iterasiAwal + 1;
                         if(iterasiAwal > N){
                             System.out.println("Tidak konvergen");
+                            break;
                         }
                         fx1 = (double) fungsiNo2(x1);
                     }while(Math.abs(fx1) > e); 
