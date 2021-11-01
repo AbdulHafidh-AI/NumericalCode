@@ -62,7 +62,7 @@ public class Secant{
             x0 = 1;
             x1 = 2.4;
             N = 10;
-            e = 0.002;
+            e = 0.00001;
             iterasi = 1;
             System.out.println("========================== SOAL NO 1 =======================================");
             System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
@@ -83,7 +83,7 @@ public class Secant{
                     System.out.println("Tidak konvergen");
                     break;    
                 }           
-            }while(fx2 > e);
+            }while(Math.abs(fx2) > e);
             System.out.println("Akar Persamaan untuk soal no 1 ini adalah : " + x2);
                 break;
             case 2:
@@ -96,14 +96,14 @@ public class Secant{
             System.out.println("========================== SOAL NO 2 =======================================");
             System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
             do{
-                fx0 = (double) fungsiNo1(x0);
-                fx1 = (double) fungsiNo1(x1);
+                fx0 = (double) fungsiNo2(x0);
+                fx1 = (double) fungsiNo2(x1);
                 if (fx0 == fx1){
                 System.out.println("ERROR MATEMATIKA");
                 break;   
                 }
                 x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
-                fx2 = (double) fungsiNo1(x2);
+                fx2 = (double) fungsiNo2(x2);
                 System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
                 x0 = x1;
                 x1 = x2;
@@ -112,7 +112,7 @@ public class Secant{
                     System.out.println("Tidak konvergen");
                     break;    
                 }           
-            }while(fx2 > e);
+            }while(Math.abs(fx2) > e);
             System.out.println("Akar Persamaan untuk soal no 2 ini adalah : " + x2);
                 break;
             case 3:
@@ -125,14 +125,14 @@ public class Secant{
             System.out.println("========================== SOAL NO 3 =======================================");
             System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
             do{
-                fx0 = (double) fungsiNo1(x0);
-                fx1 = (double) fungsiNo1(x1);
+                fx0 = (double) fungsiNo3(x0);
+                fx1 = (double) fungsiNo3(x1);
                 if (fx0 == fx1){
                 System.out.println("ERROR MATEMATIKA");
                 break;   
                 }
                 x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
-                fx2 = (double) fungsiNo1(x2);
+                fx2 = (double) fungsiNo3(x2);
                 System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
                 x0 = x1;
                 x1 = x2;
@@ -141,7 +141,7 @@ public class Secant{
                     System.out.println("Tidak konvergen");
                     break;    
                 }           
-            }while(fx2 > e);
+            }while(Math.abs(fx2) > e);
             System.out.println("Akar Persamaan untuk soal no 3 ini adalah : " + x2);
                 break;
             default:
