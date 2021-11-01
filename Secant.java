@@ -7,11 +7,10 @@ import java.util.Scanner;
  * @version 2021.10.30
  */
 public class Secant{
-
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 1 f(x) =  x*exp(-x)+sin(2*x)
      * @param x
-     * @return x *Math.exp(-x) + Math.toRadians(2 * x)
+     * @return x *Math.exp(-x) + Math.sin(a)
      */
     public static double fungsiNo1(double x){
         double a = Math.toRadians(2 * x); // Mengubah persamaannya ke nilai radiant dulu sebelum memanggil method sin
@@ -21,7 +20,7 @@ public class Secant{
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 2 f(x) =  cos(x+1)+exp(-x+2)
      * @param x
-     * @return Math.cos(Sudut) + Math.exp(-x + 2)
+     * @return Math.cos(a) + Math.exp(-x + 2)
      */
     public static double fungsiNo2(double x){
          // Mengubah ke persamaaan radiant terlebih dahulu
@@ -32,7 +31,7 @@ public class Secant{
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 3 f(x) =  cos(x)-sin(x)
      * @param x
-     * @return Math.cos(sudut) - sudut2
+     * @return Math.cos(sudutCos) - Math.sin(sudutSin)
      */
     public static double fungsiNo3(double x){
         // Mengubah ke persamaaan radiant terlebih dahulu
@@ -40,7 +39,6 @@ public class Secant{
         double sudutSin = Math.toRadians(x);
         return Math.cos(sudutCos) - Math.sin(sudutSin);
     }
-
     /**
      * Sebuaah method main yang bertujuan untuk mengeluarkan output
      * @param args
@@ -48,7 +46,7 @@ public class Secant{
     public static void main(String[] args) {
         //Inisialisasi Variabel
         double x0,x1,e;
-        double x2;
+        double x2 = 0.0;
         double fx0,fx1,fx2 = 0;
         int N,iterasi;
         String ulang;
@@ -60,20 +58,92 @@ public class Secant{
         soal = in.nextInt();
         switch (soal) {
             case 1:
-            System.out.println("========================== SOAL NO 1 =======================================");
-            System.out.printf("\nIterasi\t\tx0\t\tf(x0)\t\tx1\t\tf(x1)\t\tx2\t\tf(x2)\n");
             // Memberi nilai untuk masing-masing variabel di bawah sesuai dengan apa yang diinginkan oleh nomor 1
+            x0 = 1;
+            x1 = 2.4;
+            N = 10;
+            e = 0.002;
+            iterasi = 1;
+            System.out.println("========================== SOAL NO 1 =======================================");
+            System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
+            do{
+                fx0 = (double) fungsiNo1(x0);
+                fx1 = (double) fungsiNo1(x1);
+                if (fx0 == fx1){
+                System.out.println("ERROR MATEMATIKA");
+                break;   
+                }
+                x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
+                fx2 = (double) fungsiNo1(x2);
+                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
+                x0 = x1;
+                x1 = x2;
+                iterasi = iterasi + 1;
+                if(iterasi > N){
+                    System.out.println("Tidak konvergen");
+                    break;    
+                }           
+            }while(fx2 > e);
+            System.out.println("Akar Persamaan untuk soal no 1 ini adalah : " + x2);
                 break;
             case 2:
-            System.out.println("========================== SOAL NO 2 =======================================");
-            System.out.printf("\nIterasi\t\tx0\t\tf(x0)\t\tx1\t\tf(x1)\t\tx2\t\tf(x2)\n");
             // Memberi nilai untuk masing-masing variabel di bawah sesuai dengan apa yang diinginkan oleh nomor 2
-                 break;
+            x0 = 1;
+            x1 = 3;
+            N = 10;
+            e = 0.001;
+            iterasi = 1;
+            System.out.println("========================== SOAL NO 2 =======================================");
+            System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
+            do{
+                fx0 = (double) fungsiNo1(x0);
+                fx1 = (double) fungsiNo1(x1);
+                if (fx0 == fx1){
+                System.out.println("ERROR MATEMATIKA");
+                break;   
+                }
+                x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
+                fx2 = (double) fungsiNo1(x2);
+                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
+                x0 = x1;
+                x1 = x2;
+                iterasi = iterasi + 1;
+                if(iterasi > N){
+                    System.out.println("Tidak konvergen");
+                    break;    
+                }           
+            }while(fx2 > e);
+            System.out.println("Akar Persamaan untuk soal no 2 ini adalah : " + x2);
+                break;
             case 3:
-            System.out.println("========================== SOAL NO 3 =======================================");
-            System.out.printf("\nIterasi\t\tx0\t\tf(x0)\t\tx1\t\tf(x1)\t\tx2\t\tf(x2)\n");
             // Memberi nilai untuk masing-masing variabel di bawah sesuai dengan apa yang diinginkan oleh nomor 3
-                 break;
+            x0 = 0;
+            x1 = 2;
+            N = 10;
+            e = 0.001;
+            iterasi = 1;
+            System.out.println("========================== SOAL NO 3 =======================================");
+            System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
+            do{
+                fx0 = (double) fungsiNo1(x0);
+                fx1 = (double) fungsiNo1(x1);
+                if (fx0 == fx1){
+                System.out.println("ERROR MATEMATIKA");
+                break;   
+                }
+                x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
+                fx2 = (double) fungsiNo1(x2);
+                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
+                x0 = x1;
+                x1 = x2;
+                iterasi = iterasi + 1;
+                if(iterasi > N){
+                    System.out.println("Tidak konvergen");
+                    break;    
+                }           
+            }while(fx2 > e);
+            System.out.println("Akar Persamaan untuk soal no 3 ini adalah : " + x2);
+                break;
             default:
                 break;
         }
