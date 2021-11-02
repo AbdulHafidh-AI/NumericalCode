@@ -22,6 +22,7 @@ public class NewtonRaphson {
      * @param x
      * @return 12 * Math.pow(x, 2) - 30 * x + 17
      */
+    
     public static double fungsiDerivativesNo1(double x){
         return 12 * Math.pow(x, 2) - 30 * x + 17;
     }
