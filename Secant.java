@@ -7,7 +7,7 @@ import java.util.Scanner; // Library Scanner
  * @version 2021.10.30
  */
 public class Secant{
-    // FIelds
+    // Fields
     static double batasBawah;
     static double batasAtas;
     /**
