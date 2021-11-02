@@ -130,7 +130,7 @@ public class Secant{
             x0 = 1;
             x1 = 2.4;
             N = 10;
-            e = 0.00001;
+            e = 0.002;
             iterasi = 1;
             nilaiBatasNo1(x0, x1);
             x0 = batasBawah;
