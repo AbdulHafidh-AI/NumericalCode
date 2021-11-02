@@ -146,7 +146,7 @@ public class Secant{
                 }
                 x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
                 fx2 = (double) fungsiNo1(x2);
-                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
+                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,Math.abs(fx2));
                 x0 = x1;
                 x1 = x2;
                 iterasi = iterasi + 1;
@@ -178,7 +178,7 @@ public class Secant{
                 }
                 x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
                 fx2 = (double) fungsiNo2(x2);
-                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
+                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,Math.abs(fx2));
                 x0 = x1;
                 x1 = x2;
                 iterasi = iterasi + 1;
@@ -210,7 +210,7 @@ public class Secant{
                 }
                 x2 = x1 - (x1 - x0) * fx1 / (fx1 - fx0);
                 fx2 = (double) fungsiNo3(x2);
-                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,fx2);
+                System.out.printf("%d\t\t%f\t%f\t%f\t%f\n",iterasi,x0,x1,x2,Math.abs(fx2));
                 x0 = x1;
                 x1 = x2;
                 iterasi = iterasi + 1;
