@@ -7,6 +7,81 @@ import java.util.Scanner; // Library Scanner
  * @version 2021.10.30
  */
 public class Secant{
+    // FIelds
+    static double batasBawah;
+    static double batasAtas;
+    /**
+     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru
+     * @param x0
+     * @param x1
+     */
+    public static void nilaiBatasNo1(double x0, double x1){
+        int N = 10;
+        double h;
+        double xi;
+        double yi;
+        h = (x1 - x0) / N;
+        for(int i = 0; i <= N; i++){
+            xi = x0 + i * h;
+            yi = (double) fungsiNo1(xi);
+            double temp = x0 + (i + 1) * h;
+            double fungsiTemp = (double) fungsiNo1(temp);
+        if(yi * fungsiTemp < 0){
+            if(Math.abs(yi) < Math.abs(temp)){
+                batasBawah = xi;
+                batasAtas = temp;
+            }
+        }
+        }
+    }
+    /**
+     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru
+     * @param x0
+     * @param x1
+     */
+    public static void nilaiBatasNo2(double x0, double x1){
+        int N = 10;
+        double h;
+        double xi;
+        double yi;
+        h = (x1 - x0) / N;
+        for(int i = 0; i <= N; i++){
+            xi = x0 + i * h;
+            yi = (double) fungsiNo2(xi);
+            double temp = x0 + (i + 1) * h;
+            double fungsiTemp = (double) fungsiNo2(temp);
+        if(yi * fungsiTemp < 0){
+            if(Math.abs(yi) < Math.abs(temp)){
+                batasBawah = xi;
+                batasAtas = temp;
+            }
+        }
+        }
+    }
+    /**
+     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru
+     * @param x0
+     * @param x1
+     */
+    public static void nilaiBatasNo3(double x0, double x1){
+        int N = 10;
+        double h;
+        double xi;
+        double yi;
+        h = (x1 - x0) / N;
+        for(int i = 0; i <= N; i++){
+            xi = x0 + i * h;
+            yi = (double) fungsiNo3(xi);
+            double temp = x0 + (i + 1) * h;
+            double fungsiTemp = (double) fungsiNo3(temp);
+        if(yi * fungsiTemp < 0){
+            if(Math.abs(yi) < Math.abs(temp)){
+                batasBawah = xi;
+                batasAtas = temp;
+            }
+        }
+        }
+    }
     /** 
      * Sebuah method untuk mendefinisikan fungsi no 1 f(x) =  x*exp(-x)+sin(2*x)
      * @param x
@@ -57,6 +132,9 @@ public class Secant{
             N = 10;
             e = 0.00001;
             iterasi = 1;
+            nilaiBatasNo1(x0, x1);
+            x0 = batasBawah;
+            x1 = batasAtas;
             System.out.println("========================== SOAL NO 1 =======================================");
             System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
             do{
@@ -86,6 +164,9 @@ public class Secant{
             N = 10;
             e = 0.001;
             iterasi = 1;
+            nilaiBatasNo2(x0, x1);
+            x0 = batasBawah;
+            x1 = batasAtas;
             System.out.println("========================== SOAL NO 2 =======================================");
             System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
             do{
@@ -115,6 +196,9 @@ public class Secant{
             N = 10;
             e = 0.001;
             iterasi = 1;
+            nilaiBatasNo3(x0, x1);
+            x0 = batasBawah;
+            x1 = batasAtas;
             System.out.println("========================== SOAL NO 3 =======================================");
             System.out.printf("\nIterasi\t\tx0\t\tx1\t\tx2\t\tf(x2)\n");
             do{
