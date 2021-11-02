@@ -11,7 +11,7 @@ public class Secant{
     static double batasBawah;
     static double batasAtas;
     /**
-     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru
+     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru dengan memakai algoritma metode tabel
      * @param x0
      * @param x1
      */
@@ -22,10 +22,10 @@ public class Secant{
         double yi;
         h = (x1 - x0) / N;
         for(int i = 0; i <= N; i++){
-            xi = x0 + i * h;
-            yi = (double) fungsiNo1(xi);
-            double temp = x0 + (i + 1) * h;
-            double fungsiTemp = (double) fungsiNo1(temp);
+            xi = x0 + i * h; // Mencari nilai xi
+            yi = (double) fungsiNo1(xi); // Mencari nilai fungsi f(x) untuk metode tabel
+            double temp = x0 + (i + 1) * h;  // Mencari nilai xi + 1 untuk bisa mendapatkan nilai batas bawah dan batas atas dengan memakai variabel sementara
+            double fungsiTemp = (double) fungsiNo1(temp);  // Mencari nilai fungsi dari variabel sementaera
         if(yi * fungsiTemp < 0){
             if(Math.abs(yi) < Math.abs(temp)){
                 batasBawah = xi;
@@ -35,7 +35,7 @@ public class Secant{
         }
     }
     /**
-     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru
+     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru dengan memakai algoritma metode tabel
      * @param x0
      * @param x1
      */
@@ -46,10 +46,10 @@ public class Secant{
         double yi;
         h = (x1 - x0) / N;
         for(int i = 0; i <= N; i++){
-            xi = x0 + i * h;
-            yi = (double) fungsiNo2(xi);
-            double temp = x0 + (i + 1) * h;
-            double fungsiTemp = (double) fungsiNo2(temp);
+            xi = x0 + i * h; // Mencari nilai xi
+            yi = (double) fungsiNo2(xi); // Mencari nilai fungsi f(x) untuk metode tabel
+            double temp = x0 + (i + 1) * h; // Mencari nilai xi + 1 untuk bisa mendapatkan nilai batas bawah dan batas atas dengan memakai variabel sementara
+            double fungsiTemp = (double) fungsiNo2(temp); // Mencari nilai fungsi dari variabel sementaera
         if(yi * fungsiTemp < 0){
             if(Math.abs(yi) < Math.abs(temp)){
                 batasBawah = xi;
@@ -59,7 +59,7 @@ public class Secant{
         }
     }
     /**
-     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru
+     * Sebuah method setter untuk mengatur nilai batas bawah dan batas atas yang baru dengan memakai algoritma metode tabel
      * @param x0
      * @param x1
      */
@@ -70,10 +70,10 @@ public class Secant{
         double yi;
         h = (x1 - x0) / N;
         for(int i = 0; i <= N; i++){
-            xi = x0 + i * h;
-            yi = (double) fungsiNo3(xi);
-            double temp = x0 + (i + 1) * h;
-            double fungsiTemp = (double) fungsiNo3(temp);
+            xi = x0 + i * h; // Mencari nilai xi
+            yi = (double) fungsiNo3(xi); // Mencari fungsi f(X)
+            double temp = x0 + (i + 1) * h; // Mencari nilai xi + 1 untuk bisa mendapatkan nilai batas bawah dan batas atas dengan memakai variabel sementara
+            double fungsiTemp = (double) fungsiNo3(temp); // Mencari nilai fungsi dari variabel sementaera
         if(yi * fungsiTemp < 0){
             if(Math.abs(yi) < Math.abs(temp)){
                 batasBawah = xi;
