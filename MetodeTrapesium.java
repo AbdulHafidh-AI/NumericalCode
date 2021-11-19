@@ -3,7 +3,8 @@
  * @author Abdul Hafidh
  * @version 2021.11.18
  */
-public class MetodeTrapesium {
+public class MetodeTrapesium 
+{
      /**
      * Sebuah method untuk mendefinisikan fungsi dari soal yang diberikan
      * @param x
@@ -11,8 +12,8 @@ public class MetodeTrapesium {
      */
     public static double fungsi(double x)
     {
-        double pangkat = 20 * (x - 1);
-        double bilanganEuler = 2.718;
+        double pangkat = 20 * x - 20;
+        double bilanganEuler = Math.exp(1.0); 
         return Math.pow(x, 0.1) * (1.2 - x) * (1 - Math.pow(bilanganEuler, pangkat));
     }
     
@@ -21,16 +22,15 @@ public class MetodeTrapesium {
         // Menghitung tahap pembagi h
         double h = (batasAtas - batasBawah) / n;
         // Mencari hasil integrasi
-        double hasil = fungsi(batasAtas) + fungsi(batasAtas);
+        double hasilIntegrasi = fungsi(batasBawah) + fungsi(batasAtas);
 
         for(int i = 0; i <= n; i++){
-            double k = batasBawah + i *h;
-            hasil = hasil + 2 * fungsi(k);
-
-            // Mencari nilai akhir integrasi
-            hasil = hasil * h/2;
+            double k = batasBawah + i * h;
+            hasilIntegrasi = hasilIntegrasi + 2 * fungsi(k);
         }
-        return hasil;
+                    // Mencari nilai akhir integrasi
+                    hasilIntegrasi = hasilIntegrasi * h/2;
+        return hasilIntegrasi;
     }
 
     /**
@@ -42,8 +42,10 @@ public class MetodeTrapesium {
         // inisialisasi variabel
         int batasBawah = 0;
         int batasAtas = 1;
-        int n = 2;
+        int n = 10;
+        // Mencari jawaban dari soal yang diberikan dengan metode trapesium
         double jawaban = trapesium(batasBawah, batasAtas, n);
-        System.out.println("Jadi jawaban dengan menggunakan metode Simpson 1/3 adalah : " + jawaban);
+        // Mencetak hasil dari jawaban
+        System.out.println("Jadi jawaban dengan menggunakan metode Trapesium adalah : " + jawaban);
     }
 }

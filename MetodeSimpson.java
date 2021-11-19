@@ -12,8 +12,8 @@ public class MetodeSimpson
      */
     public static double fungsi(double x)
     {
-        double pangkat = 20 * (x - 1);
-        double bilanganEuler = 2.718;
+        double pangkat = 20 * x - 20; 
+        double bilanganEuler = Math.exp(1.0); // Nilai bilangan euler
         return Math.pow(x, 0.1) * (1.2 - x) * (1 - Math.pow(bilanganEuler, pangkat));
     }
     /**
@@ -21,36 +21,39 @@ public class MetodeSimpson
      * @param batasBawah
      * @param batasAtas
      * @param n
-     * @return
+     * @return hasilIntegrasi
      */
     public static double simpson(double batasBawah, double batasAtas,int n)
     {
+        // Menghitung tahap pembagi h
         double h = (batasAtas - batasBawah) / n;
-        // Mencari nilai
-        double hasil = fungsi(batasBawah) + fungsi(batasAtas);
+        // Mencari hasil integrasi
+        double hasilIntegrasi = fungsi(batasBawah) + fungsi(batasAtas);
         // 1/3 simpson
         for(int i = 0; i <= n; i++){
             double k = batasBawah + i * h;
             if (i % 2 == 0){
-                hasil = hasil + 2 * fungsi(k);
+                hasilIntegrasi = hasilIntegrasi + 2 * fungsi(k);
             }else{
-                hasil = hasil + 4 * fungsi(k);
+                hasilIntegrasi = hasilIntegrasi + 4 * fungsi(k);
             }
         }
         // Mencari hasil dari integrasi
-        hasil = hasil * h/3;
-        return hasil;
+        hasilIntegrasi = hasilIntegrasi* h/3;
+        return hasilIntegrasi;
     }
     /**
      * Command line argument
      * @param args
      */
     public static void main(String[] args) {
-        
+        // Inisialisasi variabel
         int batasBawah = 0;
         int batasAtas = 1;
-        int n = 2;
+        int n = 10;
+        // Memanggil fungsi ini untuk mencari soal yang diberikan dengan metode simpson
         double jawaban = simpson(batasBawah, batasAtas, n);
+        // Mencetak hasil 
         System.out.println("Jadi jawaban dengan menggunakan metode Simpson 1/3 adalah : " + jawaban);
     }
 }
