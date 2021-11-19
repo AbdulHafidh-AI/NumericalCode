@@ -24,12 +24,12 @@ public class MetodeTrapesium
         // Mencari hasil integrasi
         double hasilIntegrasi = fungsi(batasBawah) + fungsi(batasAtas);
 
-        for(int i = 0; i <= n; i++){
+        for(int i = 1; i <= n; i++){
             double k = batasBawah + i * h;
             hasilIntegrasi = hasilIntegrasi + 2 * fungsi(k);
         }
-                    // Mencari nilai akhir integrasi
-                    hasilIntegrasi = hasilIntegrasi * h/2;
+         // Mencari nilai akhir integrasi
+        hasilIntegrasi = hasilIntegrasi * h/2;
         return hasilIntegrasi;
     }
 

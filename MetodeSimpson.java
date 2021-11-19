@@ -30,7 +30,7 @@ public class MetodeSimpson
         // Mencari hasil integrasi
         double hasilIntegrasi = fungsi(batasBawah) + fungsi(batasAtas);
         // 1/3 simpson
-        for(int i = 0; i <= n; i++){
+        for(int i = 1; i <= n; i++){
             double k = batasBawah + i * h;
             if (i % 2 == 0){
                 hasilIntegrasi = hasilIntegrasi + 2 * fungsi(k);

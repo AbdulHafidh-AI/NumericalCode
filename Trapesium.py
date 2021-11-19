@@ -4,7 +4,7 @@
 from math import e
 # Define function to integrate
 def f(x):
-    return 1/(1 + x**2)
+    return (x ** 0.1) * (1.2 - x) * (1 - (2.718281828459045 ** 20(x - 1)) )
 
 # Implementing trapezoidal method
 def trapezoidal(x0,xn,n):
